@@ -9,12 +9,16 @@
 
     async function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer_section");
+        const fragment = document.createDocumentFragment();
 
         photographers.forEach((photographer) => {
             const photographerModel = photographerTemplate(photographer);
             const userCardDOM = photographerModel.getUserCardDOM();
-            photographersSection.appendChild(userCardDOM);
+
+            fragment.appendChild(userCardDOM);
         });
+
+        photographersSection.appendChild(fragment);
     }
 
     async function init() {

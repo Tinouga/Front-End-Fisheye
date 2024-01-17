@@ -2,25 +2,42 @@
 
 .photographer_section {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 70px;
   margin-top: 100px;
 }
 
-.photographer_section article {
-  justify-self: center;
+.photographer-card {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
 
-.photographer_section article h2 {
-  color: $secondary;
-  font-size: 36px;
-}
+  &__portrait {
+    height: 12.5rem;
+    width: 12.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 10%;
+  }
 
-.photographer_section article img {
-  height: 200px;
-  width: 200px;
+  &__name {
+    color: $secondary;
+    font-size: 2.25rem;
+    margin-top: 1.25rem;
+  }
+
+  &__location {
+    color: $primary;
+    font-size: 0.8125rem;
+  }
+
+  &__tagline {
+    font-size: 0.625rem;
+  }
+
+  &__price {
+    font-size: 0.5625rem;
+    color: $grey3;
+  }
 }

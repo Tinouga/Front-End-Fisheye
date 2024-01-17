@@ -1,17 +1,36 @@
-function photographerTemplate(data) {
-    const { name, portrait } = data;
-
-    const picture = `assets/photographers/id/${portrait}`;
+function photographerTemplate({ id, name, city, country, tagline, price, portrait }) {
 
     function getUserCardDOM() {
-        const article = document.createElement( 'article' );
-        const img = document.createElement( 'img' );
-        img.setAttribute("src", picture)
-        const h2 = document.createElement( 'h2' );
-        h2.textContent = name;
-        article.appendChild(img);
-        article.appendChild(h2);
+        const baseClass= "photographer-card";
+
+        const article = Object.assign(document.createElement( 'article' ), {
+            className: baseClass
+        });
+        const pPortrait = Object.assign(document.createElement( 'img' ), {
+            src: `assets/photographers/id/${portrait}`,
+            alt: `Portrait of ${name}`,
+            className: `${baseClass}__portrait`
+        });
+        const pName = Object.assign(document.createElement( 'h2' ), {
+            textContent: name,
+            className: `${baseClass}__name`
+        });
+        const pLocation = Object.assign(document.createElement( 'p' ), {
+            textContent: `${city}, ${country}`,
+            className: `${baseClass}__location`
+        });
+        const pTagline = Object.assign(document.createElement( 'p' ), {
+            textContent: tagline,
+            className: `${baseClass}__tagline`
+        });
+        const pPrice = Object.assign(document.createElement( 'p' ), {
+            textContent: `${price}€/jour`,
+            className: `${baseClass}__price`
+        });
+
+        article.append(pPortrait, pName, pLocation, pTagline, pPrice);
         return (article);
     }
-    return { name, picture, getUserCardDOM }
+
+    return { id, getUserCardDOM }
 }
