@@ -1,37 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="assets/main.css" rel="stylesheet" type="text/css" />
+<head>
+    <link href="assets/main.css" rel="stylesheet" type="text/css"/>
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" />
-    </header>
-    <main id="main">
-      <div class="photograph-header">
+</head>
+<body>
+<header role="banner">
+    <a href="index.html" aria-label="Go to the homepage">
+        <img src="assets/images/logo.png" class="logo" alt="FishEye logo"/>
+    </a>
+</header>
+<main id="main">
+    <header class="photograph-header">
+        <div class="photograph-header__info">
+            <h1 class="photograph-header__name">Mimi Keel</h1>
+            <p class="photograph-header__location">London, UK</p>
+            <p class="photograph-header__tagline">27 years old | Fashion, Animals, Events</p>
+        </div>
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
-    </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+        <div class="photograph-header__portrait">
+            <img src="assets/photographers/id/MimiKeel.jpg" alt="" />
+        </div>
+    </header>
+    <section class="media_section">
+
+    </section>
+</main>
+<div id="contact_modal">
+    <div class="modal">
+        <header>
+            <h2>Contactez-moi</h2>
+            <img src="assets/icons/close.svg" onclick="closeModal()"/>
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
-  </body>
+        <form>
+            <div>
+                <label>Prénom</label>
+                <input/>
+            </div>
+            <button class="contact_button">Envoyer</button>
+        </form>
+    </div>
+</div>
+<script src="scripts/factories/MediaFactory.js"></script>
+<script src="scripts/models/Media.js"></script>
+<script src="scripts/templates/media.js"></script>
+<script src="scripts/models/Photographer.js"></script>
+<script src="scripts/utils/photographer.js"></script>
+<script src="/scripts/pages/photographer.js"></script>
+<script src="/scripts/utils/contactForm.js"></script>
+</body>
 </html>

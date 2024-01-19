@@ -1,9 +1,14 @@
 /**
  * Colors
  */
-body, p, h1, h2 {
+html, body, p, h1, h2, button {
   margin: 0;
   padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
 }
 
 body {
@@ -68,29 +73,30 @@ form input {
   border-radius: 5px;
 }
 
-header {
+body > header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 90px;
+  height: 5.625rem;
+  padding: 0 6.25rem;
 }
 
 h1 {
   color: #901C1C;
-  margin-right: 100px;
+  font-size: 2.25rem;
+  font-weight: 400;
 }
 
 .logo {
-  height: 50px;
-  margin-left: 100px;
+  height: 3.125rem;
 }
 
 .photographer_section {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 70px;
-  margin-top: 100px;
+  margin-top: 6.25rem;
 }
 
 .photographer-card {
@@ -99,17 +105,23 @@ h1 {
   align-items: center;
   flex-direction: column;
 }
-.photographer-card__portrait {
+.photographer-card__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.photographer-card__link img {
   height: 12.5rem;
   width: 12.5rem;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center 10%;
 }
-.photographer-card__name {
+.photographer-card__link h2 {
   color: #D3573C;
   font-size: 2.25rem;
-  margin-top: 1.25rem;
+  font-weight: 400;
 }
 .photographer-card__location {
   color: #901C1C;
@@ -125,8 +137,44 @@ h1 {
 
 .photograph-header {
   background-color: #FAFAFA;
-  height: 300px;
-  margin: 0 100px;
+  height: 19.5625rem;
+  margin: 0 6.25rem;
+  padding: 0 3.13rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.photograph-header__info, .photograph-header__portrait {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.photograph-header__info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.19rem;
+}
+.photograph-header__name {
+  color: #D3573C;
+  font-size: 4rem;
+  font-weight: 400;
+}
+.photograph-header__location {
+  color: #901C1C;
+  font-size: 1.5rem;
+}
+.photograph-header__tagline {
+  color: #525252;
+  font-size: 1.125rem;
+}
+.photograph-header__portrait {
+  display: flex;
+  justify-content: flex-end;
+}
+.photograph-header__portrait img {
+  width: 12.5rem;
+  height: 12.5rem;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .contact_button {
