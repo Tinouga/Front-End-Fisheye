@@ -2,7 +2,6 @@ class Media {
     constructor(data) {
         this._id = data.id;
         this._photographerId = data.photographerId;
-        this._src = ""; // todo ask daouda about it
         this._title = data.title;
         this._likes = data.likes;
         this._date = data.date;
@@ -32,6 +31,14 @@ class Media {
     get price() {
         return this._price;
     }
+
+    // set src(src) {
+    //     this._src = src;
+    // }
+
+    get src() {
+        return `assets/photographers/${this._photographerId}/${this._src}`;
+    }
 }
 
 class ImageMedia extends Media {
@@ -39,19 +46,11 @@ class ImageMedia extends Media {
         super(data);
         this._src = data.image;
     }
-
-    get src() {
-        return `assets/photographers/${this._photographerId}/${this._src}`;
-    }
 }
 
 class VideoMedia extends Media {
     constructor(data) {
         super(data);
         this._src = data.video;
-    }
-
-    get src() {
-        return `assets/photographers/${this._photographerId}/${this._src}`;
     }
 }

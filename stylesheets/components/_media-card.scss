@@ -1,0 +1,40 @@
+@use "../abstracts" as *;
+
+.media-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.62rem;
+  min-width: 0;
+
+  &__link {
+    img {
+      width: 100%;
+      aspect-ratio: 1.17/1;
+      object-fit: cover;
+      border-radius: 0.3125rem;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__title {
+    color: $primary;
+    font-size: 1.5rem;
+    font-weight: 400;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &__likes {
+    color: $primary;
+    font-size: 1.5rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+}

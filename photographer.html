@@ -25,9 +25,21 @@
             <img src="assets/photographers/id/MimiKeel.jpg" alt="" />
         </div>
     </header>
-    <section class="media_section">
-
+    <section>
+        <header class="media-filter">
+            <label for="mediaFilter">Trier par</label>
+            <select name="mediaFilter" id="mediaFilter">
+                <option value="popularity">Popularité</option>
+                <option value="date">Date</option>
+                <option value="title">Title</option>
+            </select>
+        </header>
+        <div class="media-section"></div>
     </section>
+    <article class="photograph-additional-info">
+        <p class="photograph-additional-info__likes"></p>
+        <p class="photograph-additional-info__price"></p>
+    </article>
 </main>
 <div id="contact_modal">
     <div class="modal">
@@ -44,6 +56,7 @@
         </form>
     </div>
 </div>
+<script src="https://kit.fontawesome.com/e33ac83f27.js" crossorigin="anonymous"></script>
 <script src="scripts/factories/MediaFactory.js"></script>
 <script src="scripts/models/Media.js"></script>
 <script src="scripts/templates/media.js"></script>

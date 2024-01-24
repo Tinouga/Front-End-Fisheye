@@ -3,9 +3,8 @@
 .photograph-header {
   background-color: $grey2;
   height: 19.5625rem;
-  margin: 0 6.25rem;
   padding: 0 3.13rem;
-  display: flex;  // todo might need to use grid if contact button needs to be centered
+  display: flex;
   justify-content: space-between;
   align-items: center;
 
@@ -49,14 +48,46 @@
 }
 
 .contact_button {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 1.125rem;
+  font-weight: 700;
   color: $white;
-  padding: 11px;
-  width: 170px;
-  height: 70px;
+  padding: 1.44rem 1.12rem;
+  min-width: 10.625rem;
+  min-height: 4.3125rem;
   border: none;
   background-color: $primary;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   cursor: pointer;
+
+  &:hover {
+    background-color: $secondary;
+    color: $black;
+  }
+}
+
+.media-filter {
+  margin: 0.56rem 0 1.44rem 0;
+  display: flex;
+  gap: 1.56rem;
+  align-items: center;
+}
+
+.media-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 6rem;
+}
+
+.photograph-additional-info {
+  position: fixed;
+  bottom: 0;
+  right: 2.25rem;
+  background: $secondary;
+  display: flex;
+  gap: 4.09rem;
+  align-items: center;
+  padding: 1.31rem 2.12rem 1.31rem 1.94rem;
+  border-radius: 0.3125rem 0.3125rem 0 0;
+  font-size: 1.5rem;
+  font-weight: 500;
 }

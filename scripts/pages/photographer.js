@@ -10,12 +10,20 @@ function populateBanner(photographer) {
     });
 }
 
+function populateFooter(photographer, medias) {
+    const footer = document.querySelector(".photograph-additional-info");
+    const likes = medias.reduce((acc, media) => acc + media.likes, 0);
+
+    footer.querySelector(".photograph-additional-info__likes").innerHTML = `${likes} <i class="fa-solid fa-heart"></i>`;
+    footer.querySelector(".photograph-additional-info__price").textContent = `${photographer.price}€ / jour`;
+}
+
 function displayData(medias) {
-    const mediaSection = document.querySelector(".media_section");
+    const mediaSection = document.querySelector(".media-section");
     const fragment = document.createDocumentFragment();
 
     medias.forEach(media => {
-        const mediaCardDOM = mediaTemplate(media);
+        const mediaCardDOM = mediaTemplate(media).getMediaCardDOM();
 
         fragment.appendChild(mediaCardDOM);
     });
@@ -29,11 +37,12 @@ async function init() {
     console.log(photographer);
     const medias = await getMedias()
         .then(medias => medias.filter(media => media.photographerId === id));
-    console.log(medias)
+    console.log(medias);
 
     document.title = `FishEye - ${photographer.name}`;
     populateBanner(photographer);
     displayData(medias);
+    populateFooter(photographer, medias);
 }
 
 init();
