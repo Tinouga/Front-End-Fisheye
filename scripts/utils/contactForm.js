@@ -1,9 +1,29 @@
+const modal = document.getElementById("contact_modal");
+const mainWrapper = document.getElementById("main");
+const closeModalBtn = document.getElementById("closeModalBtn");
+const openModalBtn = document.getElementById("openModalBtn");
+
 function displayModal() {
-    const modal = document.getElementById("contact_modal");
-	modal.style.display = "block";
+    mainWrapper.setAttribute("aria-hidden", "true");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("no-scroll");
+    modal.style.display = "flex";
+	closeModalBtn.focus()
 }
 
 function closeModal() {
-    const modal = document.getElementById("contact_modal");
+    mainWrapper.setAttribute("aria-hidden", "false");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("no-scroll");
     modal.style.display = "none";
+    openModalBtn.focus()
 }
+
+// close the modal when a user press the ESC key
+document.addEventListener("keydown", e => {
+    const keyCode = e.key || e.keyCode || e.which;
+
+    if((keyCode === "Escape" || keyCode === 27) && modal.getAttribute("aria-hidden") === "false") {
+        closeModal();
+    }
+});

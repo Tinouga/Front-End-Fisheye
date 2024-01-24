@@ -13,16 +13,16 @@
         <img src="assets/images/logo.png" class="logo" alt="FishEye logo"/>
     </a>
 </header>
-<main id="main">
+<main id="main" aria-hidden="false">
     <header class="photograph-header">
         <div class="photograph-header__info">
             <h1 class="photograph-header__name">Mimi Keel</h1>
             <p class="photograph-header__location">London, UK</p>
             <p class="photograph-header__tagline">27 years old | Fashion, Animals, Events</p>
         </div>
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button id="openModalBtn" class="contact_button" onclick="displayModal()">Contactez-moi</button>
         <div class="photograph-header__portrait">
-            <img src="assets/photographers/id/MimiKeel.jpg" alt="" />
+            <img src="assets/photographers/id/MimiKeel.jpg" alt=""/>
         </div>
     </header>
     <section>
@@ -41,16 +41,24 @@
         <p class="photograph-additional-info__price"></p>
     </article>
 </main>
-<div id="contact_modal">
+<div id="contact_modal" class="overlay" aria-hidden="true" role="dialog" aria-describedby="modalTitle">
     <div class="modal">
-        <header>
-            <h2>Contactez-moi</h2>
-            <img src="assets/icons/close.svg" onclick="closeModal()"/>
+        <header class="modal__header">
+            <h2 id="modalTitle">Contactez-moi</h2>
+            <button id="closeModalBtn" onclick="closeModal()">
+                <img src="assets/icons/close.svg" />
+            </button>
         </header>
-        <form>
+        <form class="modal__body">
             <div>
-                <label>Prénom</label>
-                <input/>
+                <label for="firstName">Prénom</label>
+                <input type="text" id="firstName" name="firstName" required />
+                <label for="lastName">Nom</label>
+                <input type="text" id="lastName" name="lastName" required />
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+                <label for="message">Votre message</label>
+                <textarea id="message" name="message" cols="40" rows="4"></textarea>
             </div>
             <button class="contact_button">Envoyer</button>
         </form>
