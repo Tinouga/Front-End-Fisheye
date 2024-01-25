@@ -40,6 +40,7 @@ async function init() {
     console.log(medias);
 
     document.title = `FishEye - ${photographer.name}`;
+    document.getElementById("modalTitle").innerHTML = `Contactez-moi<br>${photographer.name}`;
     populateBanner(photographer);
     displayData(medias);
     populateFooter(photographer, medias);

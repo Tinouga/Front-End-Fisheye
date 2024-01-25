@@ -8,7 +8,7 @@ function displayModal() {
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("no-scroll");
     modal.style.display = "flex";
-	closeModalBtn.focus()
+    closeModalBtn.focus()
 }
 
 function closeModal() {
@@ -23,7 +23,22 @@ function closeModal() {
 document.addEventListener("keydown", e => {
     const keyCode = e.key || e.keyCode || e.which;
 
-    if((keyCode === "Escape" || keyCode === 27) && modal.getAttribute("aria-hidden") === "false") {
+    if ((keyCode === "Escape" || keyCode === 27) && modal.getAttribute("aria-hidden") === "false") {
         closeModal();
     }
+});
+
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", e => {
+    e.preventDefault();
+
+    const firstName = form.querySelector("#firstName").value;
+    const lastName = form.querySelector("#lastName").value;
+    const email = form.querySelector("#email").value;
+    const message = form.querySelector("#message").value;
+
+    console.log("Form values: ", firstName, lastName, email, message);
+
+    closeModal();
 });

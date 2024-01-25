@@ -41,26 +41,24 @@
         <p class="photograph-additional-info__price"></p>
     </article>
 </main>
-<div id="contact_modal" class="overlay" aria-hidden="true" role="dialog" aria-describedby="modalTitle">
+<div id="contact_modal" class="overlay" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
     <div class="modal">
         <header class="modal__header">
             <h2 id="modalTitle">Contactez-moi</h2>
-            <button id="closeModalBtn" onclick="closeModal()">
-                <img src="assets/icons/close.svg" />
+            <button id="closeModalBtn" onclick="closeModal()" aria-label="Close Contact form">
+                <img src="assets/icons/close.svg"/>
             </button>
         </header>
-        <form class="modal__body">
-            <div>
-                <label for="firstName">Prénom</label>
-                <input type="text" id="firstName" name="firstName" required />
-                <label for="lastName">Nom</label>
-                <input type="text" id="lastName" name="lastName" required />
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required />
-                <label for="message">Votre message</label>
-                <textarea id="message" name="message" cols="40" rows="4"></textarea>
-            </div>
-            <button class="contact_button">Envoyer</button>
+        <form method="post" name="contact" id="contactForm" class="modal__body">
+            <label for="firstName">Prénom</label>
+            <input type="text" id="firstName" name="firstName" required/>
+            <label for="lastName">Nom</label>
+            <input type="text" id="lastName" name="lastName" required/>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required/>
+            <label for="message">Votre message</label>
+            <textarea id="message" name="message" cols="40" rows="4"></textarea>
+            <button type="submit" class="contact_button" aria-label="Send">Envoyer</button>
         </form>
     </div>
 </div>

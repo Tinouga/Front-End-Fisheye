@@ -77,7 +77,7 @@ body {
 .modal__header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 1.19rem;
 }
 .modal__header h2 {
@@ -89,37 +89,36 @@ body {
   flex-direction: column;
   margin-right: 0.94rem;
 }
+.modal__body label {
+  font-size: 2.25rem;
+  font-weight: 400;
+  color: #312E2E;
+}
+.modal__body input, .modal__body textarea {
+  border: none;
+  border-radius: 0.3125rem;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+.modal__body input {
+  height: 4.25rem;
+}
+.modal__body button[type=submit] {
+  margin-top: 1.63rem;
+  align-self: flex-start;
+}
 
 #closeModalBtn {
   background: none;
   cursor: pointer;
   border: 0;
-}
-#closeModalBtn img {
   width: 4.5rem;
   height: 4.5rem;
-}
-
-form label {
-  color: #312E2E;
-  font-size: 36px;
-}
-
-form div {
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: self-start;
-  margin-bottom: 26px;
+  justify-content: center;
+  align-items: center;
 }
-
-form input {
-  width: 100%;
-  height: 68px;
-  border: none;
-  border-radius: 5px;
-}
-
 .no-scroll {
   overflow: hidden;
 }
