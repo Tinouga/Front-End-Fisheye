@@ -1,7 +1,7 @@
 @use "../abstracts" as *;
 
 #lightbox {
-
+  display: none;
 }
 
 .carousel {
@@ -12,7 +12,6 @@
   left: 0;
   background-color: $white;
   z-index: 100;
-  display: flex;
   align-items: center;
   padding: 0 6.25rem;
 
@@ -53,12 +52,13 @@
 
   &__item {
     height: 100%;
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 0.75rem;
 
-    img {
+    img, video {
       flex: 1;
+      overflow: hidden;
       object-fit: cover;
     }
 
@@ -67,7 +67,7 @@
       height: 3.12rem;
       font-size: 1.5rem;
       box-sizing: border-box;
-      padding: 0.435rem 0;  // (height - line-height) / 2
+      padding: 0.435rem 0; // (height - line-height) / 2
       font-weight: 400;
       white-space: nowrap;
       overflow: hidden;

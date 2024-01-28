@@ -8,9 +8,12 @@ function mediaTemplate(media) {
             className: baseClass
         });
         const mLink = Object.assign(document.createElement('a'), {
-            href: "",
+            href: "#",
             ariaLabel: name,
-            className: `${baseClass}__link`
+            className: `${baseClass}__link`,
+            onclick: () => {
+                displayCarousel(id);
+            }
         });
         if (media instanceof ImageMedia) {
             const img = Object.assign(document.createElement('img'), {
@@ -76,5 +79,34 @@ function mediaTemplate(media) {
         return thumbnail;
     }
 
-    return { id: media.id, getMediaCardDOM };
+    function generateSlide() {
+        const {src, title} = media;
+
+        const slide = Object.assign(document.createElement('li'), {
+            className: "carousel__item",
+            ariaHidden: true
+        });
+        if(media instanceof ImageMedia) {
+            const sImg = Object.assign(document.createElement('img'), {
+                src: src,
+                alt: title
+            });
+            const sTitle = Object.assign(document.createElement('h3'), {
+                textContent: title
+            });
+            slide.append(sImg, sTitle);
+        } else if (media instanceof VideoMedia) {
+            const sVideo = Object.assign(document.createElement('video'), {
+                src: src,
+                controls: true
+            });
+            const sTitle = Object.assign(document.createElement('h3'), {
+                textContent: title
+            });
+            slide.append(sVideo, sTitle);
+        }
+        return slide;
+    }
+
+    return { id: media.id, getMediaCardDOM, generateSlide };
 }
