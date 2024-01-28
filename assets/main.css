@@ -1,7 +1,7 @@
 /**
  * Colors
  */
-html, body, p, h1, h2, button {
+html, body, p, h1, h2, h3, button {
   margin: 0;
   padding: 0;
 }
@@ -11,8 +11,83 @@ a {
   text-decoration: inherit;
 }
 
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
 body {
   font-family: "DM Sans", sans-serif;
+}
+
+.carousel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 6.25rem;
+}
+.carousel__controls {
+  background: none;
+  border: 0;
+  width: 6rem;
+  height: 6rem;
+}
+.carousel__controls i {
+  color: #901C1C;
+  font-size: 3rem;
+}
+.carousel__close-btn {
+  position: absolute;
+  top: 2.5rem;
+  right: 6.25rem;
+  background: none;
+  border: 0;
+  width: 6rem;
+  height: 6rem;
+}
+.carousel__close-btn i {
+  color: #901C1C;
+  font-size: 3rem;
+}
+.carousel__content {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  align-self: stretch;
+  margin-top: 3.87rem;
+}
+.carousel__item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.carousel__item img {
+  flex: 1;
+  object-fit: cover;
+}
+.carousel__item h3 {
+  color: #901C1C;
+  height: 3.12rem;
+  font-size: 1.5rem;
+  box-sizing: border-box;
+  padding: 0.435rem 0;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .media-card {

@@ -31,11 +31,14 @@ function displayData(medias) {
     mediaSection.appendChild(fragment);
 }
 
+// todo not sure if it's the best way to do it
+let medias;
+
 async function init() {
     const id = parseInt(new URLSearchParams(window.location.search).get("id"));
     const photographer = await getPhotographer(id);
     console.log(photographer);
-    const medias = await getMedias()
+    medias = await getMedias()
         .then(medias => medias.filter(media => media.photographerId === id));
     console.log(medias);
 
