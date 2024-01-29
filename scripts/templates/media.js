@@ -33,9 +33,15 @@ function mediaTemplate(media) {
             textContent: title,
             className: `${baseClass}__title`
         });
-        const mLikes = Object.assign(document.createElement('p'), {
+        const mLikes = Object.assign(document.createElement('button'), {
             innerHTML: `${likes} <i class="fa-solid fa-heart"></i>`,
-            className: `${baseClass}__likes`
+            className: `${baseClass}__likes`,
+            ariaLabel: "likes",
+            onclick: () => {
+                media.like();
+                mLikes.innerHTML = `${media.likes} <i class="fa-solid fa-heart"></i>`;
+                populateFooter(photographer, medias);
+            }
         });
         footer.append(mTitle, mLikes);
 

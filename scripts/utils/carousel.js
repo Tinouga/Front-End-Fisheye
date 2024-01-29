@@ -21,7 +21,6 @@ function closeCarousel() {
     document.body.classList.remove("no-scroll");
     carousel.style.display = "none";
     currentIndex = 0;
-    // todo focus the last element opened in the carousel?
 }
 
 document.addEventListener("keydown", e => {

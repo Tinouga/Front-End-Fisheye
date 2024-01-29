@@ -6,6 +6,7 @@ class Media {
         this._likes = data.likes;
         this._date = data.date;
         this._price = data.price;
+        this._liked = false;
     }
 
     get id() {
@@ -38,6 +39,19 @@ class Media {
 
     get src() {
         return `assets/photographers/${this._photographerId}/${this._src}`;
+    }
+
+    get liked() {
+        return this._liked;
+    }
+
+    like() {
+        this._liked = !this._liked;
+        if (this._liked) {
+            this._likes++;
+        } else {
+            this._likes--;
+        }
     }
 }
 
