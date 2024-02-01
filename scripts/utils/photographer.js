@@ -1,34 +1,24 @@
-async function getPhotographers() {
+async function getPhotographersData(id) {
     try {
         const response = await fetch("data/photographers.json");
         if (!response.ok) {
             throw new Error(`Failed to fetch photographers. Status: ${response.status}`);
         }
 
-        const { photographers } = await response.json();
-        return photographers.map(data => new Photographer(data));
-    } catch(error) {
-        console.log("Error while fetching photographers:", error);
-        return [];
-    }
-}
+        const { photographers: rawP, media: rawM } = await response.json();
+        const photographers = rawP.map(data => new Photographer(data));
 
-async function getPhotographer(id) {
-    const photographers = await getPhotographers();
-    return photographers.find(photographer => photographer.id === id);
-}
-
-async function getMedias() {
-    try {
-        const response = await fetch("data/photographers.json");
-        if (!response.ok) {
-            throw new Error(`Failed to fetch medias. Status: ${response.status}`);
+        if(id) {
+            const medias = rawM.map(data => new MediaFactory(data));
+            const photographer = photographers.find(photographer => photographer.id === id);
+            const photographerMedias = medias.filter(media => media.photographerId === id)
+                .sort((a, b) => b.likes - a.likes);
+            return { photographer, photographerMedias };
         }
 
-        const { media } = await response.json();
-        return media.map(data => new MediaFactory(data));
+        return { photographers };
     } catch(error) {
-        console.log("Error while fetching medias:", error);
-        return [];
+        console.log("Error while fetching photographers:", error);
+        return { photographers: [], photographer: {}, photographerMedias: [] };
     }
 }

@@ -40,10 +40,8 @@ let medias;
 
 async function init() {
     const id = parseInt(new URLSearchParams(window.location.search).get("id"));
-    photographer = await getPhotographer(id);
+    ({ photographer, photographerMedias: medias } = await getPhotographersData(id));
     console.log(photographer);
-    medias = await getMedias()
-        .then(medias => medias.filter(media => media.photographerId === id).sort((a, b) => b.likes - a.likes));
     console.log(medias);
 
     document.title = `FishEye - ${photographer.name}`;
