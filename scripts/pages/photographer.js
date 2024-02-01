@@ -18,7 +18,7 @@ function populateFooter(photographer, medias) {
     footer.querySelector(".photograph-additional-info__price").textContent = `${photographer.price}€ / jour`;
 }
 
-function displayData(medias) {
+function displayData(medias, clear) {
     const mediaSection = document.querySelector(".media-section");
     const fragment = document.createDocumentFragment();
 
@@ -28,10 +28,13 @@ function displayData(medias) {
         fragment.appendChild(mediaCardDOM);
     });
 
-    mediaSection.appendChild(fragment);
+    if(clear) {
+        mediaSection.replaceChildren(fragment);
+    } else {
+        mediaSection.appendChild(fragment);
+    }
 }
 
-// todo not sure if it's the best way to do it
 let photographer;
 let medias;
 
@@ -40,7 +43,7 @@ async function init() {
     photographer = await getPhotographer(id);
     console.log(photographer);
     medias = await getMedias()
-        .then(medias => medias.filter(media => media.photographerId === id));
+        .then(medias => medias.filter(media => media.photographerId === id).sort((a, b) => b.likes - a.likes));
     console.log(medias);
 
     document.title = `FishEye - ${photographer.name}`;

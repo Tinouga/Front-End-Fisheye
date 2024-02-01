@@ -91,3 +91,87 @@
   font-size: 1.5rem;
   font-weight: 500;
 }
+
+/**
+ * Listbox
+ */
+.listbox{
+  min-width: 10.625rem;
+  position: relative;
+
+  &__selected {
+    width: 100%;
+    font-size: 1.125rem;
+    font-weight: 700;
+    padding: 1.25rem 1.44rem;
+    border: none;
+    border-radius: 0.3125rem;
+    background-color: $primary;
+    color: $white;
+    cursor: pointer;
+    box-sizing: border-box;
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 1.44rem;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      font: var(--fa-font-solid);
+      content: "\f078";
+    }
+  }
+
+  &__options {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color:$primary;
+    border-radius: 0.3125rem;
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  &__option {
+    font-size: 1.125rem;
+    font-weight: 700;
+    padding: 1.25rem 1.44rem;
+    border: none;
+    color: $white;
+    cursor: pointer;
+    position: relative;
+
+    &:not(:last-child)::after {
+      content: "";
+        display: block;
+        height: 1px;
+        background-color: $white;
+      position: absolute;
+        bottom: 0;
+      left: 0.62rem;
+      right: 0.62rem;
+    }
+
+    &:first-child {
+      border-radius: 0.3125rem 0.3125rem 0 0;
+
+      &::before {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 1.44rem;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        font: var(--fa-font-solid);
+        content: "\f077";
+      }
+    }
+
+    &:last-child {
+        border-radius: 0 0 0.3125rem 0.3125rem;
+    }
+  }
+}
