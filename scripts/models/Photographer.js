@@ -34,7 +34,7 @@ class Photographer {
     }
 
     get portrait() {
-        return `assets/photographers/id/${this._portrait}`;
+        return `./assets/photographers/id/${this._portrait}`;
     }
     getLocation() {
         return `${this._city}, ${this._country}`;
