@@ -1,3 +1,7 @@
+/**
+ * If this function is called without an id, it will return all photographers.
+ * If an id is provided, it will return the photographer and their associated medias.
+ */
 async function getPhotographersData(id) {
     try {
         const response = await fetch("data/photographers.json");

@@ -5,7 +5,7 @@ const closeCarouselBtn = document.getElementById("closeCarouselBtn");
 let currentIndex = 0;
 
 function displayCarousel(id) {
-    generateSlides(); // todo should I generate the slides here or when loading the page?
+    generateSlides();
     currentIndex = medias.findIndex(media => media.id === id);
     updateSlideDisplay();
     mainWrapper.setAttribute("aria-hidden", "true");

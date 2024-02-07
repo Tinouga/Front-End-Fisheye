@@ -33,10 +33,6 @@ class Media {
         return this._price;
     }
 
-    // set src(src) {
-    //     this._src = src;
-    // }
-
     get src() {
         return `assets/photographers/${this._photographerId}/${this._src}`;
     }

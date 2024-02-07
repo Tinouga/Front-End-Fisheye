@@ -1,7 +1,7 @@
 function mediaTemplate(media) {
 
     function getMediaCardDOM() {
-        const {id, photographerId, src, title, likes, date, price} = media;
+        const {id, src, title, likes} = media;
 
         const baseClass = "media-card";
         const article = Object.assign(document.createElement('article'), {

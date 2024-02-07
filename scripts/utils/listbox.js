@@ -24,13 +24,6 @@ document.querySelectorAll("#mediaFilterLabel, .listbox__selected").forEach(elem 
         } else {
             closeListbox()
         }
-
-        // todo asked why it behaved weirdly
-        // if (listboxOptionsContainer.style.display === "none") {
-        //     openListbox();
-        // } else {
-        //     closeListbox()
-        // }
     })
 );
 
