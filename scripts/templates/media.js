@@ -9,7 +9,7 @@ function mediaTemplate(media) {
         });
         const mLink = Object.assign(document.createElement('a'), {
             href: "#",
-            ariaLabel: name,
+            ariaLabel: `${title}, closeup view`,
             className: `${baseClass}__link`,
             onclick: () => {
                 displayCarousel(id);
