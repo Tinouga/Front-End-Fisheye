@@ -1,6 +1,6 @@
-# Base de code du projet P6 - Parcours Front-end
+# Projet n°6 : Créez un site accessible pour une plateforme de photographes
 
-## Démarrer le projet
+![FishEye](https://user.oc-static.com/upload/2022/10/14/16657380159236_Index%20%281%29.png)
 
-Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
+https://openclassrooms.com/fr/paths/516/projects/808/assignment
 
